@@ -1,30 +1,26 @@
 package com.example.demo.entities;
 
 
-import javax.persistence.JoinColumn;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Table
 @RequestMapping(name = "tb_times")
 public class Time {
 
+    @Id
     private String nome;
-    private Long pontos;
-    
-    @Autowired
-    @JoinColumn(name = "tabela_id")
-    private Tabela tabela;
+    private Integer pontos;
+
 
     public Time(){
     }
 
-    public Time(String nome, Long pontos, Tabela tabela) {
+    public Time(String nome, Integer pontos) {
         this.nome = nome;
         this.pontos = pontos;
-        this.tabela = tabela;
     }
 
     public String getNome() {
@@ -35,21 +31,11 @@ public class Time {
         this.nome = nome;
     }
 
-    public Long getPontos() {
+    public Integer getPontos() {
         return pontos;
     }
 
-    public void setPontos(Long pontos) {
+    public void setPontos(Integer pontos) {
         this.pontos = pontos;
     }
-
-    public Tabela getTabela() {
-        return tabela;
-    }
-
-    public void setTabela(Tabela tabela) {
-        this.tabela = tabela;
-    }
-
-    
 }
